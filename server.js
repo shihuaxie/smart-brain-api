@@ -4,9 +4,9 @@ const bodyParser = require('body-parser')
 //bcrypt
 const bcrypt = require('bcrypt-nodejs')
 //cors
-const cors = require('cors');
+const cors = require('cors')
 //knex
-const knex = require('knex');
+const knex = require('knex')
 
 const register = require('./controllers/register')
 const signin = require('./controllers/signin')

@@ -11,3 +11,7 @@ node_modules
 
 # Ignore SASS config files
 .sass-cache
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/smart-brain-api.iml
+/.idea/vcs.xml

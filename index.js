@@ -13,7 +13,9 @@ const jwtSecret = 'jagdkgjqlw3eq';
 app.use(express.json());
 
 
-app.use(cors())
+app.use(cors(
+    { origin:'https://sylvia-smart-brain.netlify.app'}
+))
 
 mongoose.connect('mongodb+srv://SmartBrain:qMEZDv41qxtwcDbj@cluster0.fkcfmsf.mongodb.net/?retryWrites=true&w=majority');
 

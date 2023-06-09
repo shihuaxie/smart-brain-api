@@ -1,50 +1,15 @@
-const express = require('express')
-//middleware
-const bodyParser = require('body-parser')
-//bcrypt
-const bcrypt = require('bcrypt-nodejs')
-//cors
-const cors = require('cors')
-//knex
-const knex = require('knex')
-
-const register = require('./schemas/register')
-const signin = require('./schemas/signin')
-const profile = require('./schemas/profile')
-const image = require('./schemas/image')
-
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;heroku
-const db = knex({
-    client: 'pg',
-    connection: {
-        connectionString: process.env.DATABASE_URL,
-        ssl:{
-            rejectUnauthorized: false
-        }
-    }
-});
-
-//console.log(db.select('*').from('users').then(data => console.log(data)));
-
+const express = require('express');
+const cors = require('cors');
 const app = express();
-app.use(bodyParser.json());
-app.use(cors())
 
 
-app.get('/', (req, res) => {res.send('it is working!')})
-app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
-app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
-app.get('/profile/:id', (req, res) => {profile.handleProfileGet(req, res, db)})
-app.put('/image', (req, res) => {image.handleImage(req, res, db)})
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000',
+}))
 
+app.get('/test', (req, res) =>{
+    res.json('test ok');
+})
 
-app.listen(process.env.PORT || 3000, () => {console.log(`app  is working on port ${process.env.PORT}`)})
-
-
-/*
-things need to be done:
-1. /signin -->post-->return success/failed
-2. /register -->post --> return user
-3. /profile/:userId--> get -->return user
-4. /image  -->put --> return user, every time they submit an image we want to increase the entries
- */
+app.listen(4321);

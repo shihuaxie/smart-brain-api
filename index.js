@@ -16,7 +16,7 @@ app.use(cors({
     origin: 'http://localhost:3000',
 }))
 
-mongoose.connect('mongodb+srv://SmartBrain:qMEZDv41qxtwcDbj@cluster0.fkcfmsf.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://SmartBrain:qMEZDv41qxtwcDbj@cluster0.fkcfmsf.mongodb.net/?retryWrites=true&w=majority');
 
 
 //test

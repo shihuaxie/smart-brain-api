@@ -8,8 +8,14 @@ require('dotenv').config();
 const app = express();
 
 app.use(express.json());
+
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://sylvia-smart-brain.netlify.app',
+];
+
 app.use(cors({
-    origin:'https://sylvia-smart-brain.netlify.app',
+    origin:allowedOrigins,
     credentials:true
 }));
 

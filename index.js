@@ -11,15 +11,9 @@ const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'jagdkgjqlw3eq';
 
 app.use(express.json());
-const allowedOrigins = [
-    'http://localhost:3000',
-    'https://sylvia-smart-brain.netlify.app/',
-];
 
-app.use(cors({
-    credentials: true,
-    origin: allowedOrigins,
-}))
+
+app.use(cors())
 
 mongoose.connect('mongodb+srv://SmartBrain:qMEZDv41qxtwcDbj@cluster0.fkcfmsf.mongodb.net/?retryWrites=true&w=majority');
 

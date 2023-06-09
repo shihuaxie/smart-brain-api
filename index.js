@@ -7,15 +7,14 @@ const User = require('./models/User');
 require('dotenv').config();
 const app = express();
 
+app.use(express.json());
+app.use(cors({
+    origin:'https://sylvia-smart-brain.netlify.app',
+    credentials:true
+}));
+
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'jagdkgjqlw3eq';
-
-app.use(express.json());
-
-
-app.use(cors(
-    { origin:'https://sylvia-smart-brain.netlify.app'}
-))
 
 mongoose.connect('mongodb+srv://SmartBrain:qMEZDv41qxtwcDbj@cluster0.fkcfmsf.mongodb.net/?retryWrites=true&w=majority');
 

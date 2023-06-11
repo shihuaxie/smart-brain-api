@@ -11,7 +11,7 @@ app.use(express.json());
 
 const allowedOrigins = [
     'http://localhost:3000',
-    'https://sylvia-smart-brain.netlify.app',
+   // 'https://sylvia-smart-brain.netlify.app',
 ];
 
 app.use(cors({

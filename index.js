@@ -11,7 +11,7 @@ app.use(express.json());
 
 const allowedOrigins = [
     'http://localhost:3000',
-   // 'https://sylvia-smart-brain.netlify.app',
+    'https://sylvia-smart-brain.netlify.app',
 ];
 
 app.use(cors({
@@ -22,7 +22,7 @@ app.use(cors({
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'jagdkgjqlw3eq';
 
-mongoose.connect('mongodb+srv://SmartBrain:qMEZDv41qxtwcDbj@cluster0.fkcfmsf.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGO_URL);
 
 
 //test
